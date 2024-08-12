@@ -28,7 +28,7 @@ public class OpenAiServiceImpl implements OpenAIService {
 
 
     @Override
-    public String getChatResponse(String userMessage) {
+    public String getChatResponses(String userMessage) {
         HttpHeaders headers = new HttpHeaders();
         RestTemplate restTemplate = new RestTemplate();
 

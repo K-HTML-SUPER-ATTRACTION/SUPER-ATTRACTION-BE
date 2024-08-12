@@ -19,7 +19,7 @@ public class OpenAiController {
         @PostMapping("/openai")
         public ResponseEntity<String> chat(@RequestBody Map<String, String> request) {
             String userMessage = request.get("message");
-            String response = openAIService.getChatResponse(userMessage);
+            String response = openAIService.getChatResponses(userMessage);
             return ResponseEntity.ok(response);
         }
     }
