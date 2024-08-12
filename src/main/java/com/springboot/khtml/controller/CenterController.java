@@ -19,9 +19,9 @@ public class CenterController {
 
     private final CenterService centerService;
 
-    @GetMapping("/getCenter/{id}")
-    public ResponseEntity<ResponseCenterDto> getCompetition(@PathVariable Long id) throws Exception{
-        ResponseCenterDto selectedCenterDto = centerService.getCenter(id);
+    @GetMapping("/getCenter/{cid}")
+    public ResponseEntity<ResponseCenterDto> getCompetition(@PathVariable Long cid) throws Exception{
+        ResponseCenterDto selectedCenterDto = centerService.getCenter(cid);
         return ResponseEntity.status(HttpStatus.OK).body(selectedCenterDto);
     }
 

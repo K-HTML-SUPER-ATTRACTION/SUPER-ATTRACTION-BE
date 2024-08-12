@@ -23,17 +23,18 @@ public class CenterServiceImpl implements CenterService {
     private final CenterDao centerDao;
 
     @Override
-    public ResponseCenterDto getCenter(Long id) throws Exception {
-        Center center = centerDao.getCenterById(id)
+    public ResponseCenterDto getCenter(Long cid) throws Exception {
+        Center center = centerDao.getCenterById(cid)
                 .orElseThrow(() -> new Exception("센터를 찾을 수 없습니다."));
 
         ResponseCenterDto responseCenterDto = new ResponseCenterDto();
         responseCenterDto.setCenter_name(center.getCenter_name());
-        responseCenterDto.setId(center.getId());
+        responseCenterDto.setCid(center.getCid());
         responseCenterDto.setRegion(center.getRegion());
         responseCenterDto.setDistrict(center.getDistrict());
         responseCenterDto.setDesignated_beds(center.getDesignated_beds());
         responseCenterDto.setContact_number(center.getContact_number());
+
         return responseCenterDto;
     }
 
@@ -47,7 +48,7 @@ public class CenterServiceImpl implements CenterService {
         List<ResponseCenterDto> responseCenterDtoList = new ArrayList<>();
         for (Center center : centerList) {
             ResponseCenterDto responseCenterDto = new ResponseCenterDto();
-            responseCenterDto.setId(center.getId());
+            responseCenterDto.setCid(center.getCid());
             responseCenterDto.setCenter_name(center.getCenter_name());
             responseCenterDto.setRegion(center.getRegion());
             responseCenterDto.setDistrict(center.getDistrict());
